@@ -10,11 +10,11 @@ class CourseRepo(object):
 				return False
 		return True
 
-
->>> repo=CourseRepo("Hug")
->>> repo.check()
-False
->>> 
-
-
-
+class repo_dir(object):
+	def __init__(self, target):
+		self.original = os.getcwd()
+		self.target = target
+	def __enter__ (self):
+		os.chdir(self.target)
+	def __exit__ (self, type, value, tb):
+		os.chdir(self.original)
