@@ -1,4 +1,5 @@
 import untangle
+import requests
 
 def check_outages():
 	doc = untangle.parse(requests.get("http://www.grandcentral.org/developers/data/nyct/nyct_ene.xml").content)
