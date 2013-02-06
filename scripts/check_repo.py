@@ -1,4 +1,4 @@
-from hugerth.session3.py import CourseRepo, repo_dir
+from hugerth.session3 import CourseRepo, repo_dir
 import os.path, sys
 
 
