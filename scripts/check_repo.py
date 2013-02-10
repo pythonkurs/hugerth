@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from hugerth.session3 import CourseRepo, repo_dir
 import os.path, sys
 
