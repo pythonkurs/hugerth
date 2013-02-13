@@ -13,7 +13,12 @@ class CourseRepo(object):
 	def surname(self):
 		return self._surname
 
-	def _also_required(lastname):
+	@surname.setter
+	def surname(self, lastname):
+		self._surname = lastname
+		self._also_required(lastname)
+
+	def _also_required(self, lastname):
 		self.required.append("{lastname}/__init__.py".format(lastname=lastname))
 		self.required.append("{lastname}/session2.py".format(lastname=lastname))
 		self.required.append("{lastname}/session3.py".format(lastname=lastname))
