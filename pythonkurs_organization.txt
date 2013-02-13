@@ -1,0 +1,8 @@
+Most common day to commit: Wednesday - 120 commits
+Most common hour to commit: 16 - 55 commits
+Longest commit message: 19 words
+Average commit message: 4 words
+Most common word in commit messages: to - 31 times
+Largest number of commits from a single user: 1
+Average number of commits per user: 1
+1 empty repositories were found
