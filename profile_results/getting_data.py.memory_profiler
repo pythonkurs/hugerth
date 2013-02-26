@@ -1,0 +1,20 @@
+22 / 38
+Filename: hugerth/session2.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+     4                             @profile
+     5    12.816 MB     0.000 MB   def check_outages():
+     6    14.223 MB     1.406 MB   	doc = untangle.parse(requests.get("http://www.grandcentral.org/developers/data/nyct/nyct_ene.xml").content)
+     7                             
+     8    14.223 MB     0.000 MB   	outages=doc.NYCOutages.outage
+     9    14.223 MB     0.000 MB   	total=len(outages)
+    10    14.223 MB     0.000 MB   	repair=0
+    11                             
+    12    14.223 MB     0.000 MB   	for outage in outages:
+    13    14.223 MB     0.000 MB   		if outage.reason.cdata == u'REPAIR':
+    14    14.223 MB     0.000 MB   			repair+=1
+    15                             
+    16    14.230 MB     0.008 MB   	print str(repair) + " / " + str(total)
+
+
