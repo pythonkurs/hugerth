@@ -1,0 +1,79 @@
+Factoring 288399828027890834734:
+2
+163
+31660763
+27941905543
+         11289 function calls in 0.088 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 __future__.py:48(<module>)
+        1    0.000    0.000    0.000    0.000 __future__.py:74(_Feature)
+        7    0.000    0.000    0.000    0.000 __future__.py:75(__init__)
+        1    0.000    0.000    0.000    0.000 hashlib.py:55(<module>)
+        6    0.000    0.000    0.000    0.000 hashlib.py:94(__get_openssl_constructor)
+        1    0.001    0.001    0.001    0.001 pyecm.py:1034(get_points)
+        3    0.000    0.000    0.001    0.000 pyecm.py:1075(isprime)
+        3    0.000    0.000    0.043    0.014 pyecm.py:1137(ecm)
+        5    0.003    0.001    0.087    0.017 pyecm.py:1235(factors)
+        2    0.000    0.000    0.000    0.000 pyecm.py:1287(is_switch)
+     4550    0.040    0.000    0.041    0.000 pyecm.py:131(next_prime)
+        2    0.000    0.000    0.000    0.000 pyecm.py:1316(valid_input)
+        1    0.000    0.000    0.087    0.087 pyecm.py:1357(command_line)
+        1    0.000    0.000    0.087    0.087 pyecm.py:1435(main)
+        1    0.001    0.001    0.088    0.088 pyecm.py:15(<module>)
+       66    0.000    0.000    0.000    0.000 pyecm.py:182(mpz)
+        3    0.000    0.000    0.000    0.000 pyecm.py:188(root)
+        3    0.000    0.000    0.000    0.000 pyecm.py:205(sqrt)
+        1    0.000    0.000    0.000    0.000 pyecm.py:235(ts)
+       13    0.002    0.000    0.004    0.000 pyecm.py:325(add)
+        4    0.000    0.000    0.000    0.000 pyecm.py:36(gcd)
+       27    0.001    0.000    0.001    0.000 pyecm.py:373(atdn)
+        2    0.000    0.000    0.000    0.000 pyecm.py:388(copy)
+        3    0.000    0.000    0.000    0.000 pyecm.py:398(could_be_prime)
+      118    0.017    0.000    0.035    0.000 pyecm.py:432(double)
+        3    0.000    0.000    0.000    0.000 pyecm.py:455(fastprime)
+        3    0.000    0.000    0.000    0.000 pyecm.py:519(inv_const)
+        4    0.000    0.000    0.000    0.000 pyecm.py:525(naf)
+      141    0.010    0.000    0.021    0.000 pyecm.py:539(parallel_invert)
+       15    0.000    0.000    0.000    0.000 pyecm.py:558(prod)
+        9    0.001    0.000    0.003    0.000 pyecm.py:754(subtract)
+      141    0.011    0.000    0.011    0.000 pyecm.py:77(invert)
+        1    0.000    0.000    0.000    0.000 pyecm.py:775(congrats)
+        3    0.000    0.000    0.043    0.014 pyecm.py:786(sure_factors)
+        2    0.000    0.000    0.000    0.000 pyecm.py:827(to_tuple)
+        1    0.000    0.000    0.042    0.042 pyecm.py:837(mainloop)
+        2    0.000    0.000    0.024    0.012 pyecm.py:994(fast_multiply)
+        1    0.000    0.000    0.000    0.000 random.py:100(seed)
+        1    0.000    0.000    0.001    0.001 random.py:40(<module>)
+        1    0.000    0.000    0.000    0.000 random.py:651(WichmannHill)
+        1    0.000    0.000    0.000    0.000 random.py:72(Random)
+        1    0.000    0.000    0.000    0.000 random.py:801(SystemRandom)
+        1    0.000    0.000    0.000    0.000 random.py:91(__init__)
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_md5}
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha1}
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha224}
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha256}
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha384}
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha512}
+        1    0.000    0.000    0.000    0.000 {binascii.hexlify}
+        1    0.000    0.000    0.000    0.000 {eval}
+        1    0.000    0.000    0.000    0.000 {function seed at 0x7f06dcd570c8}
+        6    0.000    0.000    0.000    0.000 {getattr}
+        6    0.000    0.000    0.000    0.000 {globals}
+      225    0.000    0.000    0.000    0.000 {isinstance}
+      816    0.000    0.000    0.000    0.000 {len}
+        1    0.000    0.000    0.000    0.000 {math.exp}
+     4571    0.001    0.000    0.001    0.000 {math.log}
+        3    0.000    0.000    0.000    0.000 {math.sqrt}
+       12    0.000    0.000    0.000    0.000 {max}
+      336    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {min}
+        1    0.000    0.000    0.000    0.000 {posix.urandom}
+      142    0.000    0.000    0.000    0.000 {range}
+
+
