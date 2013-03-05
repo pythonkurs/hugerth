@@ -1,8 +1,7 @@
 from hugerth.session3 import CourseRepo, repo_dir
 import os.path, sys
 
-
-
+#@profile
 if __name__ == '__main__':
 #Take an argument which is an absolute path
 	if len(sys.argv) == 2:

@@ -6,6 +6,7 @@ from IPython.parallel import Client
 lengths = dict()
 
 def factorize(n):
+	print "Outer factoring", n
 	if n < 2:
 		return []
 	factors = []
@@ -29,14 +30,17 @@ def parallel(n):
 	cli = Client()
 	dview = cli[:]
 
+	print "I'm parallel"
+
 	@dview.parallel(block=True)
 	def factorize(n):
-		print "n is", n
+		print "inner n is", n
 		if n < 2:
 			return []
 		factors = []
 		p = 2
 		while True:
+			print "Told ya it was true"
 			if n == 1:
 				return factors
 			r = n % p
@@ -52,14 +56,13 @@ def parallel(n):
 				p += 1
 
 	results = factorize.map(range(2, n))
-#	print results
+
+	print "I found the results without printing anything you told me to"
 
 	for result in results:
 		dic = dict()
-#		print result
 		for element in result:
 			dict_add(dic, element)
-#		print dic
 		dict_add (lengths, len(dic))
 
 
