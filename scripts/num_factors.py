@@ -26,37 +26,36 @@ def factorize(n):
 			p += 1
 
 def parallel(n):
-	cli = Client()
-	dview = cli[:]
-	@dview.parallel(block=True)
-	def factorize(n):
+	results = []
+	dic = dict()
+	returns = []
+	for n in numbers:
 		if n < 2:
 			return []
 		factors = []
 		p = 2
 		while True:
 			if n == 1:
-				return factors
+				break
 			r = n % p
 			if r == 0:
 				factors.append(p)
 				n = n / p
 			elif p * p >= n:
 				factors.append(n)
-				return factors
+				break
 			elif p > 2:
 				p += 2
 			else:
 				p += 1
 
-	results = factorize.map(range(2, n))  ## map is very slow
-	for result in results:
-		dic = dict()
-		for element in result:
-			dict_add(dic, element)
-		dict_add (lengths, len(dic))
+		results.append(factors)
 
+		## Still inside this 'for' loop,
+		## Do all the dictionary things.
+		## Do I have to redefine them here?
 
+	
 
 def dict_add (dic, element):
 	if element in dic:
@@ -90,7 +89,6 @@ if __name__ == '__main__':
 
 	n+=1
 
-
 	if mode == 's':
 		for number in range(2,n):
 			factors = factorize(number)
@@ -109,11 +107,16 @@ if __name__ == '__main__':
 			dict_add(lengths, length)
 
 	elif mode == 'i':
-		parallel(n)
+		cli = Client()
+		dview = cli[:]
+		result = dview.scatter('numbers', range(2,n), block=False)
+		print result
+		for element in result:
+			print element
+		#list_of_dists = dview.apply_sync(parallel)
 
 	else:
-		print "Please select one of s(erial), m(ultiprocessing) or i(Python) modes\n"
-		
+		print "Please select one of s(erial), m(ultiprocessing) or i(Python) modes\n"		
 
 print lengths
 
