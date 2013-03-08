@@ -2,9 +2,45 @@ import sys
 import os
 import multiprocessing
 from IPython.parallel import Client
-from hugerth.session7 import factorize, parallel, dict_add, dict_sum, multitask
+from hugerth.session7 import factorize, dict_add, dict_sum, multitask
 
 lengths = dict()
+
+def parallel():
+	results = dict()
+
+	def dict_add (dic, element):
+		if element in dic:
+			dic[element] += 1
+		else:
+			dic[element] = 1
+
+	for n in numbers:
+		if n < 2:
+			return []
+		factors = []
+		p = 2
+		while True:
+			if n == 1:
+				break
+			r = n % p
+			if r == 0:
+				factors.append(p)
+				n = n / p
+			elif p * p >= n:
+				factors.append(n)
+				break
+			elif p > 2:
+				p += 2
+			else:
+				p += 1
+
+		unique = set()
+		for factor in factors:
+			unique.add(factor)
+		dict_add(results, len(unique))
+
+	return results
 
 if __name__ == '__main__':
 
@@ -29,8 +65,8 @@ if __name__ == '__main__':
 			factors = factorize(number)
 			factor_dic = dict()
 			for element in factors:
-				dict_add(fact_dic, element)
-			dict_add (lengths, len(fact_dic))
+				dict_add(factor_dic, element)
+			dict_add (lengths, len(factor_dic))
 	
 	elif mode == 'm':
 		cpus = multiprocessing.cpu_count()
