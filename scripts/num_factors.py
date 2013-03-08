@@ -25,10 +25,16 @@ def factorize(n):
 		else:
 			p += 1
 
-def parallel(n):
-	results = []
-	dic = dict()
-	returns = []
+def parallel():
+	results = dict()
+	lengths = dict()
+
+	def dict_add (dic, element):
+		if element in dic:
+			dic[element] += 1
+		else:
+			dic[element] = 1
+
 	for n in numbers:
 		if n < 2:
 			return []
@@ -49,11 +55,12 @@ def parallel(n):
 			else:
 				p += 1
 
-		results.append(factors)
+		unique = set()
+		for factor in factors:
+			unique.add(factor)
+		dict_add(results, len(unique))
 
-		## Still inside this 'for' loop,
-		## Do all the dictionary things.
-		## Do I have to redefine them here?
+	return results
 
 	
 
@@ -62,6 +69,12 @@ def dict_add (dic, element):
 		dic[element] += 1
 	else:
 		dic[element] = 1
+
+def dict_sum (dic, key, value):
+	if key in dic:
+		dic[key] += value
+	else:
+		dic[key] = value
 
 def task(args):
 	factors = factorize (args)
@@ -109,11 +122,11 @@ if __name__ == '__main__':
 	elif mode == 'i':
 		cli = Client()
 		dview = cli[:]
-		result = dview.scatter('numbers', range(2,n), block=False)
-		print result
-		for element in result:
-			print element
-		#list_of_dists = dview.apply_sync(parallel)
+		dview.scatter('numbers', range(2,n), block=False)
+		results = dview.apply_sync(parallel)
+		for element in results:
+			for key in element:
+				dict_sum(lengths, key, element[key])
 
 	else:
 		print "Please select one of s(erial), m(ultiprocessing) or i(Python) modes\n"		
