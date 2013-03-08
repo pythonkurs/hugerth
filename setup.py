@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.3'
+version = '0.7'
 
 setup(name='hugerth',
       version=version,
@@ -14,7 +14,7 @@ setup(name='hugerth',
       url='https://github.com/pythonkurs.hugerth',
       license='GPL V3',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-      scripts = ['scripts/getting_data.py', 'scripts/check_repo.py'],
+      scripts = ['scripts/getting_data.py', 'scripts/check_repo.py', 'scripts/num_factors.py'],
       include_package_data=True,
       zip_safe=True,
       install_requires=[
