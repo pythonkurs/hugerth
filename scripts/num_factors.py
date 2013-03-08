@@ -2,87 +2,9 @@ import sys
 import os
 import multiprocessing
 from IPython.parallel import Client
+from hugerth.session7 import factorize, parallel, dict_add, dict_sum, multitask
 
 lengths = dict()
-
-def factorize(n):
-	if n < 2:
-		return []
-	factors = []
-	p = 2
-	while True:
-		if n == 1:
-			return factors
-		r = n % p
-		if r == 0:
-			factors.append(p)
-			n = n / p
-		elif p * p >= n:
-			factors.append(n)
-			return factors
-		elif p > 2:
-			p += 2
-		else:
-			p += 1
-
-def parallel():
-	results = dict()
-	lengths = dict()
-
-	def dict_add (dic, element):
-		if element in dic:
-			dic[element] += 1
-		else:
-			dic[element] = 1
-
-	for n in numbers:
-		if n < 2:
-			return []
-		factors = []
-		p = 2
-		while True:
-			if n == 1:
-				break
-			r = n % p
-			if r == 0:
-				factors.append(p)
-				n = n / p
-			elif p * p >= n:
-				factors.append(n)
-				break
-			elif p > 2:
-				p += 2
-			else:
-				p += 1
-
-		unique = set()
-		for factor in factors:
-			unique.add(factor)
-		dict_add(results, len(unique))
-
-	return results
-
-	
-
-def dict_add (dic, element):
-	if element in dic:
-		dic[element] += 1
-	else:
-		dic[element] = 1
-
-def dict_sum (dic, key, value):
-	if key in dic:
-		dic[key] += value
-	else:
-		dic[key] = value
-
-def task(args):
-	factors = factorize (args)
-	dic = dict()
-	for element in factors:
-		dict_add(dic, element)
-	return len(dic)
-
 
 if __name__ == '__main__':
 
@@ -105,17 +27,17 @@ if __name__ == '__main__':
 	if mode == 's':
 		for number in range(2,n):
 			factors = factorize(number)
-			dic = dict()
+			factor_dic = dict()
 			for element in factors:
-				dict_add(dic, element)
-			dict_add (lengths, len(dic))
+				dict_add(fact_dic, element)
+			dict_add (lengths, len(fact_dic))
 	
 	elif mode == 'm':
 		cpus = multiprocessing.cpu_count()
 		if cpus > 4:
 			cpus = 4
 		pool = multiprocessing.Pool(processes=cpus)
-		result = pool.map(task, range(2,n))
+		result = pool.map(multitask, range(2,n))
 		for length in result:
 			dict_add(lengths, length)
 
